@@ -14,15 +14,16 @@ const PostBlog = () => {
     const { register, handleSubmit, errors } = useForm()
 
     async function onSubmit (data) {
-        console.log(data.postid)
-        console.log(data.posttitle)
-        console.log(data.postcontent)
+        // console.log(data.postid)
+        // console.log(data.posttitle)
+        // console.log(data.postcontent)
         await DataStore.save(new Post({postBlogId: "3b51348c-9e21-42ad-b186-6cd157c4b3d1", title: data.posttitle, content: data.postcontent}))
+        document.getElementById("postblogform").reset();
     }
 
     return (
         <Layout>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form id="postblogform" onSubmit={handleSubmit(onSubmit)}>
                 {/* <input type="text" placeholder="Post ID" name="postid" ref={register({required: "POST ID REQUIRED", minLength: {value: 1, message: "TOO SHORT"}})}/><br/>{errors.postid && <p>{errors.postid.message}</p>} */}
                 <input type="text" placeholder="Post Title" name="posttitle" ref={register({required: "POST TITLE REQUIRED", minLength: {value: 5, message: "TOO SHORT"}})}/><br/>{errors.posttitle && <p>{errors.posttitle.message}</p>}
                 <input type="text" placeholder="Post Content" name="postcontent" ref={register({required: "POST CONTENT REQUIRED", minLength: {value: 10, message: "TOO SHORT"}})}/> <br/>{errors.postcontent && <p>{errors.postcontent.message}</p>}
