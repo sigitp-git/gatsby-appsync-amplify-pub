@@ -19,12 +19,13 @@ const IndexPage = ({ data, pageContext }) => {
   return (
   <Layout>
     <SEO title="AppSync Query" />
-    <h3>Total Post: {data.gatsbyappsync.listPosts.items.length} </h3>
-    <Link to="/postblog"><h3>Post a Blog!</h3></Link>
+    <div>
+    <h4>Total Post: {data.gatsbyappsync.listPosts.items.length}, post a blog <Link to="/postblog"><u>here</u></Link></h4>
+    </div>
     {
       data.gatsbyappsync.listPosts.items.map((item, index) =>(
           <div key={index}>
-              <Link to={item.id}><h2>{item.title}</h2></Link>
+              <Link to={item.id}><h3>{item.title}</h3></Link>
               <small>Last Changed At: {new Date(item._lastChangedAt).toLocaleDateString("en-US")}</small>
               <p><strong>Excerpt: </strong><br/> {item.content.substr(0, 100)}...</p>
               <Link to={item.id}>read more ></Link><br/><br/>

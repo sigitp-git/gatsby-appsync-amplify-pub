@@ -5,7 +5,7 @@ import { MdSend } from 'react-icons/md'
 
 import { v4 as uuidv4 } from 'uuid'
 import Amplify from '@aws-amplify/core'
-import { Auth } from '@aws-amplify/auth'
+import { Auth } from 'aws-amplify'
 import { withAuthenticator, AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 import { DataStore, Predicates } from "@aws-amplify/datastore"
 import { Blog, Post, Comment } from "../models"
