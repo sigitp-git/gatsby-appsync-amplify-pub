@@ -9,6 +9,7 @@ module.exports = {
     {
       resolve: `gatsby-source-graphql`,
       options: {
+      	refetchInterval: 30,
         typeName: `gatsbyappsync`,
         fieldName: `gatsbyappsync`,
         url: `https://randomvalue.appsync-api.us-east-1.amazonaws.com/graphql`,

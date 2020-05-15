@@ -19,6 +19,7 @@ const IndexPage = ({ data, pageContext }) => {
   return (
   <Layout>
     <SEO title="AppSync Query" />
+    <h3>Total Post: {data.gatsbyappsync.listPosts.items.length} </h3>
     {
       data.gatsbyappsync.listPosts.items.map((item, index) =>(
           <div key={index}>
@@ -30,7 +31,6 @@ const IndexPage = ({ data, pageContext }) => {
           </div>
       ))
     }
-    <h3>Total Post: {data.gatsbyappsync.listPosts.items.length} </h3>
   </Layout>
   )
 }
