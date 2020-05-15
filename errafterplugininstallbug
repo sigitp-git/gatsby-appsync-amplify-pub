@@ -1,0 +1,4 @@
+gatsby clean
+rm -Rf node_modules package-lock.json
+yarn install
+https://github.com/gatsbyjs/gatsby/issues/18048
