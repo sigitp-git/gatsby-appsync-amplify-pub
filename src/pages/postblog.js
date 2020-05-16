@@ -2,12 +2,12 @@ import React from "react"
 import Layout from "../components/layout"
 import { useForm } from "react-hook-form"
 import { MdSend } from 'react-icons/md'
-
+import "../components/layout.css"
 //import { v4 as uuidv4 } from 'uuid'
 //import Amplify from '@aws-amplify/core'
 //import { Auth } from 'aws-amplify'
 import Amplify, { Auth } from 'aws-amplify'
-import { withAuthenticator, AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import { AmplifyAuthenticator, AmplifySignOut, AmplifySignIn, AmplifySignUp } from '@aws-amplify/ui-react'
 import { DataStore, Predicates } from "@aws-amplify/datastore"
 import { Blog, Post, Comment } from "../models"
 import awsmobile from "../aws-exports"
@@ -15,8 +15,13 @@ Amplify.configure(awsmobile)
 
 const PostBlog = () => {
     const { register, handleSubmit, errors } = useForm()
-
     let today = new Date().toISOString().slice(0, 10)
+
+    const MyTheme = {
+        signInButtonIcon: { 'backgroundColor': 'red', 'borderColor': 'red' },
+        googleSignInButton: { 'backgroundColor': 'red', 'borderColor': 'red' },
+        button: { 'backgroundColor': 'red', 'borderColor': 'red' },
+    }
 
     async function onSubmit (data) {
         // console.log(data.postid)
@@ -29,7 +34,7 @@ const PostBlog = () => {
 
     return (
         <Layout>
-            <AmplifyAuthenticator>
+            <AmplifyAuthenticator theme={MyTheme}>
             <div>
                 <form id="postblogform" onSubmit={handleSubmit(onSubmit)}>
                     {/* <input type="text" placeholder="Post ID" name="postid" ref={register({required: "POST ID REQUIRED", minLength: {value: 1, message: "TOO SHORT"}})}/><br/>{errors.postid && <p>{errors.postid.message}</p>} */}
@@ -39,7 +44,7 @@ const PostBlog = () => {
                 </form>
             </div>
             <div>
-                <AmplifySignOut />
+                <AmplifySignOut theme={MyTheme}/>
                 <br/>
                 <br/>
             </div>
