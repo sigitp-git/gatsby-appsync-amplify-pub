@@ -34,7 +34,7 @@ const PostBlog = () => {
                 <form id="postblogform" onSubmit={handleSubmit(onSubmit)}>
                     {/* <input type="text" placeholder="Post ID" name="postid" ref={register({required: "POST ID REQUIRED", minLength: {value: 1, message: "TOO SHORT"}})}/><br/>{errors.postid && <p>{errors.postid.message}</p>} */}
                     <input type="text" placeholder="Post Title" name="posttitle" ref={register({required: "POST TITLE REQUIRED", minLength: {value: 5, message: "TOO SHORT"}})}/><br/>{errors.posttitle && <p>{errors.posttitle.message}</p>}
-                    <input type="text" placeholder="Post Content" name="postcontent" ref={register({required: "POST CONTENT REQUIRED", minLength: {value: 10, message: "TOO SHORT"}})}/> <br/>{errors.postcontent && <p>{errors.postcontent.message}</p>}
+                    <textarea placeholder="Post Content" name="postcontent" rows="10" cols="100" ref={register({required: "POST CONTENT REQUIRED", minLength: {value: 10, message: "TOO SHORT"}})}/> <br/>{errors.postcontent && <p>{errors.postcontent.message}</p>}
                     <button style={{"float": "left"}} type="submit" className="btn">Submit <MdSend className="btn-icon"/></button><br/>
                 </form>
             </div>
