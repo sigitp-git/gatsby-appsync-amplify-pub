@@ -17,12 +17,6 @@ const PostBlog = () => {
     const { register, handleSubmit, errors } = useForm()
     let today = new Date().toISOString().slice(0, 10)
 
-    const MyTheme = {
-        signInButtonIcon: { 'backgroundColor': 'red', 'borderColor': 'red' },
-        googleSignInButton: { 'backgroundColor': 'red', 'borderColor': 'red' },
-        button: { 'backgroundColor': 'red', 'borderColor': 'red' },
-    }
-
     async function onSubmit (data) {
         // console.log(data.postid)
         // console.log(data.posttitle)
@@ -34,7 +28,9 @@ const PostBlog = () => {
 
     return (
         <Layout>
-            <AmplifyAuthenticator theme={MyTheme}>
+            <AmplifyAuthenticator>
+            {/* <AmplifySignIn headerText="Customize Sign-In Text Here" slot="sign-in" />
+            <AmplifySignUp headerText="Customize Sign-Up Text Here" slot="sign-up" /> */}
             <div>
                 <form id="postblogform" onSubmit={handleSubmit(onSubmit)}>
                     {/* <input type="text" placeholder="Post ID" name="postid" ref={register({required: "POST ID REQUIRED", minLength: {value: 1, message: "TOO SHORT"}})}/><br/>{errors.postid && <p>{errors.postid.message}</p>} */}
@@ -44,7 +40,7 @@ const PostBlog = () => {
                 </form>
             </div>
             <div>
-                <AmplifySignOut theme={MyTheme}/>
+                <AmplifySignOut/>
                 <br/>
                 <br/>
             </div>
