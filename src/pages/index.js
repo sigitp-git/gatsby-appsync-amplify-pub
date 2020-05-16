@@ -13,8 +13,8 @@ const IndexPage = ({ data, pageContext }) => {
   // const prevPage = currentPage - 1 === 1 ? '/' : (currentPage - 1).toString()
   // const nextPage = (currentPage + 1).toString()
 
-  console.log(data)
-  console.log(pageContext)
+  // console.log(data)
+  // console.log(pageContext)
 
   return (
   <Layout>
@@ -26,7 +26,9 @@ const IndexPage = ({ data, pageContext }) => {
       data.gatsbyappsync.listPosts.items.map((item, index) =>(
           <div key={index}>
               <Link to={item.id}><h3>{item.title}</h3></Link>
-              <small>Last Changed At: {new Date(item._lastChangedAt).toLocaleDateString("en-US")}</small>
+              <small>Post Date: {item.date}</small>
+              {/* <small>Post ID: {item.id}</small> */}
+              {/* <small>Last Changed At: {new Date(item._lastChangedAt).toLocaleDateString("en-US")}</small> */}
               <p><strong>Excerpt: </strong><br/> {item.content.substr(0, 100)}...</p>
               <Link to={item.id}>read more ></Link><br/><br/>
               <hr/>
@@ -48,10 +50,11 @@ query indexQuery {
         name
       }
     }
-    listPosts(limit: 100) {
+    listPosts(limit: 1000) {
       items {
         id
         title
+        date
         content
         _lastChangedAt
       }

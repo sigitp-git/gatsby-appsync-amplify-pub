@@ -12,9 +12,10 @@ exports.createPages = async ({ actions, graphql }) => {
     const { data } = await graphql(`
     query nodeQuery {
         gatsbyappsync {
-            listPosts(limit: 100) {
+            listPosts(limit: 1000) {
                 items {
                     id
+                    date
                     title
                     content
                 }

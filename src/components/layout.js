@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
@@ -35,17 +35,9 @@ const Layout = ({ children }) => {
       >
         <main>{children}</main>
         <footer>
-          <Link to="/">Home</Link>
-          {` `}
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>.
-          {` `} 
-          <a href="https://github.com/sigitp-git/sigit.cloud-gatsby" target="_blank" rel="noopener noreferrer">Source Code</a>.
-          {` `} 
-          <a href="https://aws.amazon.com/appsync/" target="_blank" rel="noopener noreferrer">AppSync</a>.
-          {` `} 
-          <a href="https://docs.amplify.aws/start/q/integration/js" target="_blank" rel="noopener noreferrer">Amplify</a>.
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
     </>

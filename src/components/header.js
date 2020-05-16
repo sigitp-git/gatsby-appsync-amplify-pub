@@ -1,11 +1,12 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import "./layout.css"
 
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `darkslateblue`,
+      background: `white`,
       marginBottom: `1.45rem`,
     }}
   >
@@ -24,7 +25,7 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <h1>{siteTitle}</h1>
         </Link>
       </h1>
     </div>

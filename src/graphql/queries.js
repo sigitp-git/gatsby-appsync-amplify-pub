@@ -38,6 +38,7 @@ export const getBlog = /* GraphQL */ `
       posts {
         items {
           id
+          date
           title
           content
           _version
@@ -91,6 +92,7 @@ export const syncPosts = /* GraphQL */ `
     ) {
       items {
         id
+        date
         title
         content
         blog {
@@ -117,6 +119,7 @@ export const getPost = /* GraphQL */ `
   query GetPost($id: ID!) {
     getPost(id: $id) {
       id
+      date
       title
       content
       blog {
@@ -156,6 +159,7 @@ export const listPosts = /* GraphQL */ `
     listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        date
         title
         content
         blog {
@@ -196,6 +200,7 @@ export const syncComments = /* GraphQL */ `
         content
         post {
           id
+          date
           title
           content
           _version
@@ -218,6 +223,7 @@ export const getComment = /* GraphQL */ `
       content
       post {
         id
+        date
         title
         content
         blog {
@@ -253,6 +259,7 @@ export const listComments = /* GraphQL */ `
         content
         post {
           id
+          date
           title
           content
           _version

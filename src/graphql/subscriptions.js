@@ -9,6 +9,7 @@ export const onCreateBlog = /* GraphQL */ `
       posts {
         items {
           id
+          date
           title
           content
           _version
@@ -32,6 +33,7 @@ export const onUpdateBlog = /* GraphQL */ `
       posts {
         items {
           id
+          date
           title
           content
           _version
@@ -55,6 +57,7 @@ export const onDeleteBlog = /* GraphQL */ `
       posts {
         items {
           id
+          date
           title
           content
           _version
@@ -74,6 +77,7 @@ export const onCreatePost = /* GraphQL */ `
   subscription OnCreatePost {
     onCreatePost {
       id
+      date
       title
       content
       blog {
@@ -108,6 +112,7 @@ export const onUpdatePost = /* GraphQL */ `
   subscription OnUpdatePost {
     onUpdatePost {
       id
+      date
       title
       content
       blog {
@@ -142,6 +147,7 @@ export const onDeletePost = /* GraphQL */ `
   subscription OnDeletePost {
     onDeletePost {
       id
+      date
       title
       content
       blog {
@@ -179,6 +185,7 @@ export const onCreateComment = /* GraphQL */ `
       content
       post {
         id
+        date
         title
         content
         blog {
@@ -209,6 +216,7 @@ export const onUpdateComment = /* GraphQL */ `
       content
       post {
         id
+        date
         title
         content
         blog {
@@ -239,6 +247,7 @@ export const onDeleteComment = /* GraphQL */ `
       content
       post {
         id
+        date
         title
         content
         blog {

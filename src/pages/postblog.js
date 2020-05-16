@@ -3,23 +3,27 @@ import Layout from "../components/layout"
 import { useForm } from "react-hook-form"
 import { MdSend } from 'react-icons/md'
 
-import { v4 as uuidv4 } from 'uuid'
-import Amplify from '@aws-amplify/core'
-import { Auth } from 'aws-amplify'
+//import { v4 as uuidv4 } from 'uuid'
+//import Amplify from '@aws-amplify/core'
+//import { Auth } from 'aws-amplify'
+import Amplify, { Auth } from 'aws-amplify'
 import { withAuthenticator, AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 import { DataStore, Predicates } from "@aws-amplify/datastore"
 import { Blog, Post, Comment } from "../models"
-import { awsmobile } from "../aws-exports"
+import awsmobile from "../aws-exports"
 Amplify.configure(awsmobile)
 
 const PostBlog = () => {
     const { register, handleSubmit, errors } = useForm()
 
+    let today = new Date().toISOString().slice(0, 10)
+
     async function onSubmit (data) {
         // console.log(data.postid)
         // console.log(data.posttitle)
         // console.log(data.postcontent)
-        await DataStore.save(new Post({postBlogId: "3b51348c-9e21-42ad-b186-6cd157c4b3d1", title: data.posttitle, content: data.postcontent}))
+        // console.log(today)
+        await DataStore.save(new Post({title: data.posttitle, date: today, content: data.postcontent}))
         document.getElementById("postblogform").reset();
     }
 

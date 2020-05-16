@@ -10,6 +10,8 @@ const BlogPost = ({ data }) => {
         <Layout>
             <div>
                 <h2>{post.title}</h2>
+                <br/>
+                <small>Post Date: {post.date}</small>
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
                 <br/>
                 <small>Post ID: {post.id}</small>
@@ -28,6 +30,7 @@ query ($id: ID!) {
     gatsbyappsync {
         getPost(id: $id) {
             id
+            date
             title
             content
             _lastChangedAt
